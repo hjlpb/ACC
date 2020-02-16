@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client</title>
+    <meta charset="utf-8">
+    <script src="jquery.min.js"></script>
+    <style type="text/css">
+        input {
+            width: 500px;
+        }
+        button {
+            font-size: 30px;
+        }
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function run(){
+        var ownerAddress = $('#ownerAddress').val();
+        var clientAddress = $('#clientAddress').val();
+        var attributeList = $('#attributeList').val();
+        var nonce = $('#nonce').val();
+        var r = $('#r').val();
+        var s = $('#s').val();
+        var v = $('#v').val();
+
+        $.ajax({
+            url:"/client",
+            type:"POST",
+            data:{
+                ownerAddress:ownerAddress,
+                clientAddress:clientAddress,
+                attributeList:attributeList,
+                nonce:nonce,
+                v:v,
+                r:r,
+                s:s
+            },
+            success: function(result){
+                $('#result').text(result);
+            }
+        })
+    }
+</script>
+
+<h2>Client Side (Off-chain)</h2>
+
+<label>Owner Address</label>
+<input id="ownerAddress" value="0xd4D3Bfc73812fa05AffCB0BCda855fB75B3C1b20">
+</br>
+
+<label>Client Address</label>
+<input id="clientAddress" value="0x3744DC77Ff25305Caf824acA61430DAF19AFe8b6">
+</br>
+
+<label>Nonce</label>
+<input id="nonce" value="0">
+</br>
+
+<label>Attribute List</label>
+<input id="attributeList" value="[1,2,3]">
+</br>
+
+<label>Signature (v)</label>
+<input id="v" placeholder="">
+</br>
+
+<label>Signature (r)</label>
+<input id="r" placeholder="">
+</br>
+
+<label>Signature (s)</label>
+<input id="s" placeholder="">
+</br>
+</br>
+
+<button onclick="run()">Verify Signature</button>
+</br>
+
+<label>Result</label>
+<p id="result"></p>
+</br>
+
+</body>
+</html>

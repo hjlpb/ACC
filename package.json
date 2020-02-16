@@ -1,0 +1,17 @@
+{
+  "name": "ethtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethereumjs-abi": "^0.6.8",
+    "express": "^4.17.1",
+    "hbs": "^4.0.6",
+    "web3": "^1.2.4"
+  }
+}

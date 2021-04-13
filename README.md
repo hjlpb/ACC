@@ -2,7 +2,7 @@
 This project mainly includes two parts, on-chain and off-chain.
 
 1.off-chain part
-a. run "node install" to install related packages
+a. run "npm install" to install related packages
 b. run "node app.js" to run the local server
 c. open "http://localhost:5555/owner" in the browser to open the off-chain owner side, and type data to generate signature for client
 d. open "http://localhost:5555/client" in the browser to open the off-chain client side, and type the data generated from the last step to verify the signature locally
